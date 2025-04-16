@@ -39,7 +39,7 @@ export const authOptions = {
       if (user) {
         (token.id = user.id),
           (token.name = user.name),
-          (token.emaiil = user.email);
+          (token.email = user.email);
       }
       return token;
     },
@@ -51,6 +51,9 @@ export const authOptions = {
       }
       return session;
     },
+  },
+  session: {
+    strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
