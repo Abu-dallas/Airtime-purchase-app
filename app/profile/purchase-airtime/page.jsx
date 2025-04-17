@@ -22,7 +22,6 @@ function PurchaseAirtime() {
   });
 
   async function onSubmit(values) {
-    console.log("values:", values);
     setLoading(true);
     try {
       const res = await fetch("/api/airtime-purchase", {
@@ -32,13 +31,15 @@ function PurchaseAirtime() {
         },
         body: JSON.stringify(values),
       });
+      const data = await res.json();
       if (res.ok) {
+        toast.success(data.message);
         setLoading(false);
         router.push("/profile");
       }
       if (!res.ok) {
+        toast.error(data.message);
         setLoading(false);
-        toast.error("failed to purchase, try again");
       }
     } catch (error) {
       setLoading(false);
@@ -48,7 +49,7 @@ function PurchaseAirtime() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full md:flex items-center justify-center md:p-20">
       <div className="w-full h-[70vh] md:h-screen md:w-[35%] bg-slate-50 rounded-t-4xl absolute bottom-0 md:flex md:items-center md:justify-center md:flex-col">
         <Link href="/profile" className="flex items-center px-6 py-12">
           <ChevronLeftIcon className="text-slate-600" />
@@ -103,10 +104,10 @@ function PurchaseAirtime() {
               <option value="" disabled>
                 Select Network
               </option>
-              <option value="Mtn 1">MTN</option>
-              <option value="Airtel 4">Airtel</option>
-              <option value="Glo 2">Glo</option>
-              <option value="9mobile 3">9mobile</option>
+              <option value="1">MTN</option>
+              <option value="4">Airtel</option>
+              <option value="2">Glo</option>
+              <option value="3">9mobile</option>
             </select>
             {formik.errors.network && formik.touched.network ? (
               <span className="text-sm py-1 text-rose-600">
