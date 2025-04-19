@@ -35,6 +35,10 @@ function SignIn() {
         toast.success("Logged In");
         router.push("/profile");
       }
+      if (!login.ok) {
+        setLoading(false);
+        toast.error("Incorrect email or password");
+      }
     } catch (error) {
       console.log("[Front_Login_error]", error);
       setLoading(false);
@@ -44,13 +48,13 @@ function SignIn() {
     <div className="h-screen w-full max-md:bg-[url('/bg2.jpg')]  relative">
       <div className="h-screen w-full relative top-0  bg-slate-950/65">
         <div className="w-full h-screen relative md:flex md:items-center md:justify-center">
-          <div className="w-full h-[80vh] md:h-screen md:w-[35%] bg-slate-50 rounded-t-4xl absolute bottom-0 md:flex md:items-center md:justify-center md:flex-col">
-            <p className="text-center text-3xl font-bold text-blue-800 mb-3 mt-16">
+          <div className="w-full h-[75vh] md:h-[500px] md:w-[30%] bg-slate-50 md:rounded-xl rounded-t-4xl absolute bottom-0 md:flex md:mb-18 md:justify-center md:flex-col">
+            <p className="text-center text-3xl font-bold text-blue-800 mb-3 md:mb-0 mt-16 md:mt-8">
               Welcome Back
             </p>
             <form
               onSubmit={formik.handleSubmit}
-              className="w-full items-center  gap-3 mt-12 justify-center flex px-8 flex-col"
+              className="w-full items-center  gap-3 mt-12 md:mt-6 justify-center flex px-8 flex-col"
             >
               <div className="w-full">
                 <label className="text-md my-3 text-slate-500">

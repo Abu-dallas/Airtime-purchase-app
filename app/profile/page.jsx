@@ -70,7 +70,7 @@ function Profile() {
                 Current Balance
               </p>
               <p className="text-3xl text-slate-500 font-bold">
-                $
+                ₦
                 {Data?.balance.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,

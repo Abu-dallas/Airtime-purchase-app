@@ -41,13 +41,19 @@ function FundingWallet() {
   }
 
   return (
-    <div className="w-full">
-      <div className="w-full h-[60vh] md:h-screen md:w-[35%] bg-slate-50 rounded-t-4xl absolute bottom-0 md:flex md:items-center md:justify-center md:flex-col">
-        <Link href="/profile" className="flex items-center px-6 py-12">
-          <ChevronLeftIcon className="text-slate-600" />
-          <p className="text-lg text-slate-600 font-semibold">Back</p>
-        </Link>
-        <p className="text-center text-3xl font-bold text-blue-800 mb-3 mt-6">
+    <div className="w-full md:flex items-center justify-center">
+      <div className="w-full h-[60vh] md:h-[500px] md:mb-12 md:w-[35%] bg-slate-50 rounded-2xl absolute bottom-0 md:flex md:items-center md:justify-center md:flex-col">
+        <div className="w-full md:-mt-18">
+          <Link
+            href="/profile"
+            className="flex items-center w-36 px-6 md:my-4 my-12"
+          >
+            <ChevronLeftIcon className="text-slate-600" />
+            <p className="text-lg text-slate-600 font-semibold">Back</p>
+          </Link>
+        </div>
+
+        <p className="text-center text-3xl font-bold text-blue-800 mb-3 md:mt-3 mt-6">
           Funding Account
         </p>
         <form
