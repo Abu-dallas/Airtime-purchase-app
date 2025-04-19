@@ -67,7 +67,7 @@ function Transactions() {
                       : "text-xl text-rose-400 font-bold"
                   }`}
                 >
-                  {transaction?.type === "withdrawal" ? "-$" : "+$"}
+                  {transaction?.type === "withdrawal" ? "-₦" : "+₦"}
                   {transaction?.amount}
                 </p>
               </div>
