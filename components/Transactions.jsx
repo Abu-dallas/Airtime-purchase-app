@@ -23,6 +23,7 @@ function Transactions() {
     };
     fetchData();
   }, []);
+
   return (
     <div className="text-slate-700 py-4 px-6">
       <div className="w-full flex items-center justify-between">
@@ -46,7 +47,18 @@ function Transactions() {
                   <p className="text-xl font-bold text-slate-600">
                     {transaction?.type}
                   </p>
-                  <p className="text-slate-600 text-md">{transaction?.date}</p>
+                  <p className="text-slate-400 text-md">
+                    {new Date(transaction?.createdAt).toLocaleDateString(
+                      "en-GB",
+                      {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      }
+                    )}
+                  </p>
                 </span>
                 <p
                   className={`${
